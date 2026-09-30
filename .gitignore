@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+~$*
+
+# SỐ LIỆU THẬT – repo đang public, KHÔNG đưa lên GitHub (lương, công nợ, doanh thu, giá mua)
+du_lieu/*
+!du_lieu/MO_TA_DU_LIEU.md
+bao_cao/
+PHAT_HIEN_SO_LIEU_*.md

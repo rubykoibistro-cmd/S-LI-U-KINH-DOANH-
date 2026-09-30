@@ -1,0 +1,30 @@
+{
+  "ten_nha_hang": "RUBY KOI BISTRO (DỮ LIỆU MẪU – KHÔNG PHẢI SỐ THẬT)",
+  "so_ghe": 0,
+  "chi_phi_co_dinh_thang": {
+    "mat_bang": {
+      "so_tien": 20000000,
+      "ghi_chu": "mẫu"
+    },
+    "bhxh": {
+      "so_tien": 4000000,
+      "ghi_chu": "mẫu"
+    }
+  },
+  "khau_hao_thang": 100000000,
+  "tra_ngan_hang_thang": 50000000,
+  "muc_tieu_doanh_thu_thang": 0,
+  "doanh_thu_hoa_von_thang": 240000000,
+  "so_ngay_no_ncc_mac_dinh": 7,
+  "nguon_mua_nvl": "so_quy",
+  "nguong": {
+    "food_cost_pct_toi_da": 0.3,
+    "hao_hut_pct_canh_bao": 0.03,
+    "hao_hut_pct_nghiem_trong": 0.05,
+    "lech_gia_mua_pct": 0.1,
+    "gia_tri_dong_canh_bao_gia": 200000,
+    "lech_quy_tien_mat": 50000,
+    "lech_pos_vs_qtbh_pct": 0.01,
+    "lech_thanh_tien_dong": 1000
+  }
+}
