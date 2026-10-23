@@ -53,6 +53,10 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--den-ngay", type=_ngay, help="chốt đến ngày (mặc định cuối tháng)")
     p.add_argument("--in", dest="in_ra", action="store_true")
 
+    p = sub.add_parser("xuat-bang-dieu-hanh", help="xuất 5 file JSON cho trang theo dõi Ruby Koi Điều Hành")
+    p.add_argument("--den-ngay", type=_ngay, default=date.today() - timedelta(days=1))
+    p.add_argument("--thu-muc", default="bao_cao/bang_dieu_hanh")
+
     p = sub.add_parser("kiem-tra", help="chỉ soát lỗi số liệu, in danh sách cảnh báo")
     p.add_argument("--tu", type=_ngay)
     p.add_argument("--den", type=_ngay, default=date.today() - timedelta(days=1))
@@ -80,6 +84,11 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     dl = nap_du_lieu(du_lieu)
+    if a.lenh == "xuat-bang-dieu-hanh":
+        from .bang_dieu_hanh import xuat_bang
+        for tep in xuat_bang(dl, a.den_ngay, Path(a.thu_muc)):
+            print("  ", tep)
+        return 0
     if a.lenh == "bao-cao-ngay":
         kq = lap_bao_cao(dl, a.ngay, a.ngay, "ngay", ra)
     elif a.lenh == "bao-cao-thang":

@@ -208,3 +208,14 @@ def test_nhap_so_quy(tmp_path):
     pl = lai_lo(dl, tinh_nhap_xuat_ton(dl, date(2026, 8, 1), date(2026, 8, 31)), date(2026, 8, 1), date(2026, 8, 31))
     assert "luong" not in pl["nhan_su"]
     assert pl["gia_von"]["tong"] == pytest.approx(165000 + 5000000)
+
+
+def test_bang_dieu_hanh(dl):
+    from ruby_koi_ketoan.bang_dieu_hanh import du_lieu_bang
+    b = du_lieu_bang(dl, D3)
+    tq = b["tong_quan"][0]
+    assert tq["doanh_thu"] == 13490000 and tq["so_ngay"] == 3
+    assert tq["cong_no_ncc"] == 2900000
+    assert [r["ngay"] for r in b["ngay"]] == ["2026-10-01", "2026-10-02", "2026-10-03"]
+    assert b["thang"][0]["du_so_quy"] is True and b["thang"][0]["ebitda"] is not None
+    assert 1 <= len(b["viec"]) <= 5

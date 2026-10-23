@@ -74,21 +74,26 @@ Với Google Sheets gốc (không phải .xlsx), đặt `exportMimeType` bằng
    trong `.gitignore` để lưu trữ bằng git.
 7. **Gửi chị Quyên** theo mẫu dưới đây.
 
-# Mẫu tin nhắn gửi chị Quyên (mỗi ngày)
+# Trang theo dõi "Ruby Koi Điều Hành" – nơi DUY NHẤT chị xem số
+
+Link: https://claude.ai/artifact/P1LBUA65KDDZwsUfSQ4Rb1 (trang Dashboard, riêng tư). Chị không cần mở file báo cáo
+nào khác. Mỗi lần chạy xong bước 4, làm mới trang:
+
+1. `python -m ruby_koi_ketoan xuat-bang-dieu-hanh --den-ngay <ngày cuối có số>` → 5 file JSON trong
+   `bao_cao/bang_dieu_hanh/` (tong_quan, ngay, thang, cong_no, viec).
+2. Tải từng file lên trang: công cụ `Artifact`, `url` như trên, `asset: true`, `file_path` là file đó (mỗi file một lần gọi).
+3. Một lệnh `ArtifactData` `batch`, với mỗi `datasets/<tên file>`: `update` các trường `source.url` (url vừa nhận),
+   `source.name` và `updated: {at, by: "Agent kế toán Ruby Koi"}`. Không sửa `files/index.html` trừ khi chị yêu cầu đổi giao diện.
+4. Đọc `data/users/me` doc `check` theo hướng dẫn của trang (tối đa 5 lần).
+
+# Tin nhắn gửi chị mỗi ngày (ngắn, tối đa 4 dòng)
 
 ```
-📊 RUBY KOI – BÁO CÁO NGÀY dd/mm (Thứ …)
-[Nếu thiếu số liệu: ⚠️ Thiếu … → lợi nhuận chưa dùng được]
-• Doanh thu thuần: … (lũy kế …, đạt …% hoà vốn, dự báo tháng …)
-• Khách: … | TB/khách: … | Tiền mặt …% · CK/thẻ …%
-• Giá vốn: … (food cost …%) | Hao hụt: … (…%)
-• EBITDA hôm nay … | lũy kế …
-• Quỹ tiền mặt: khớp / thiếu … / thừa …
-• Công nợ NCC: … (quá hạn …) | Khách nợ: …
-🔴 Việc cần chị quyết/nhắc hôm nay (tối đa 5 ý, việc lớn nhất trước)
-🟠 Lưu ý thêm
-📎 bao_cao/ngay/bao_cao_<ngày>.md · .xlsx
+Ruby Koi dd/mm: doanh thu hôm qua … · tháng … (dự báo …, …% hoà vốn)
+Việc gấp: <việc số 1 trong danh sách>
+Xem đủ: https://claude.ai/artifact/P1LBUA65KDDZwsUfSQ4Rb1
 ```
+Không dán bảng, không gửi file báo cáo dài trừ khi chị hỏi. Báo cáo chi tiết (.md/.xlsx) vẫn lưu ở `bao_cao/` để tra khi cần.
 
 # Chốt tháng (ngày 1–3 tháng sau)
 
