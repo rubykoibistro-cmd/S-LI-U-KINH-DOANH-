@@ -74,6 +74,28 @@ Với Google Sheets gốc (không phải .xlsx), đặt `exportMimeType` bằng
    trong `.gitignore` để lưu trữ bằng git.
 7. **Gửi chị Quyên** theo mẫu dưới đây.
 
+# Phần mềm "Ruby Koi Quản Lý" – nơi nhân viên nhập và chị xem
+
+Link: https://claude.ai/artifact/DFaZ5BcQXBeTsox1ku3xxb (riêng tư; chị cấp quyền Contributor cho nhân viên).
+Dữ liệu nằm trong kho dữ liệu của trang, đọc/ghi bằng công cụ `ArtifactData` với `url` trên:
+
+| Bộ sưu tập | Mỗi tài liệu | Ai nhập |
+|---|---|---|
+| `ca/<yyyy-mm-dd>` | chốt ca: gop, giam_gia, tiep_khach, khach_no, khach_no_ten, chuyen_khoan, the, tien_mat_dem, so_khach, khach_da_thu | Thu ngân |
+| `phieu/<id>` | khoản chi: ngay, nhom (mã nhóm như chi_phi.csv), noi_dung, so_tien, cach (tien_mat/chuyen_khoan/no), han, da_tra, ngay_tra, thuoc_thang, ma_nvl, so_luong | Thu ngân |
+| `kho_phieu/<id>` | ngay, ma, loai (kiem/huy/nhap), so_luong, ly_do | Bếp |
+| `kho_nvl/<ma>` | danh mục nguyên liệu | Agent / chị |
+| `cai_dat/chung` | hoa_von, mat_bang, bhxh, khau_hao (chỉ chủ quán sửa) | Chị |
+
+Mỗi sáng:
+1. Trong thời gian chuyển đổi (nhân viên chưa nhập thẳng vào phần mềm): nhập DSR như bước 2 ở trên, rồi ghi các
+   ngày mới vào `ca/` (batch ≤ 50, `set` cho ngày mới; ngày đã có thì đọc `version` rồi `update` kèm `if_version`).
+   Không ghi đè ngày mà nhân viên đã tự nhập (tài liệu không có `nguon: "DSR"`).
+2. Đọc `ca`, `phieu`, `kho_phieu` từ phần mềm (`list`, `out_dir` vào scratchpad) và soát lỗi như mục "Xử lý cảnh báo".
+   Phần mềm đã tự hiện việc cần làm ở mục Tổng quan, nên tin nhắn cho chị chỉ cần nêu điều phần mềm không tự thấy
+   (ví dụ lệch với file POS, khoản chi nghi trùng).
+3. Cuối tháng: đưa dữ liệu phần mềm về `du_lieu/` và chạy `bao-cao-thang` để có báo cáo chuẩn (có tồn kho).
+
 # Trang theo dõi "Ruby Koi Điều Hành" – nơi DUY NHẤT chị xem số
 
 Link: https://claude.ai/artifact/P1LBUA65KDDZwsUfSQ4Rb1 (trang Dashboard, riêng tư). Chị không cần mở file báo cáo
